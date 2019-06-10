@@ -42,7 +42,7 @@ export default new Vuex.Store({
           created: user.metadata.creationTime,
           lastSignIn: user.metadata.lastSignInTime,
         }
-        firebase.database().ref('users').child(user.uid).set(googleUser)
+        firebase.firestore().collection('users').doc(user.uid).set(googleUser)
         commit('SET_USER', googleUser)
       })
       .catch(error => console.log(error))
