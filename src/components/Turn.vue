@@ -8,8 +8,8 @@
                 <p v-if="countState!= undefined">Count State: {{countState}}</p>
                 <p v-if="currentUser">Last Updated By: {{lastUpdatedBy}}</p>
                 </v-card>
-                <v-btn color="primary" v-if="currentUser" :disabled="currentUser.uid == lastUpdatedBy" @click="increment" dark>TOUCH</v-btn>
-                <v-btn color="secondary" :disabled="isAuthenticated" @click="googleSignIn" dark>GOOGLE SIGNIN</v-btn>
+                <v-btn block color="primary" v-if="currentUser" :disabled="currentUser.uid == lastUpdatedBy" @click="increment" dark>TOUCH</v-btn>
+                <v-btn block color="primary" :disabled="isAuthenticated" @click="googleSignIn" dark>GOOGLE SIGNIN</v-btn>
             </v-flex>
         </v-layout>
     </v-container>
