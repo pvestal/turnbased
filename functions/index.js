@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 
 // Listen for updates to any 'turn' document.
 exports.resetGame = functions.firestore
-    .document('game/turn')
+    .document('game/{gameId}')
     .onUpdate((change, context) => {
       // Retrieve the current and previous value
       const data = change.after.data();
@@ -15,10 +15,10 @@ exports.resetGame = functions.firestore
       let modCount = data.count;
 
       if (modCount > 9) {
-          gameStatus = "reset"
+          gameStatus = "RESET"
           modCount = 0
       } else {
-          gameStatus = "inprogress"
+          gameStatus = "INPROGRESS"
       }
 
       // Then return a promise of an update operation to update firestore
